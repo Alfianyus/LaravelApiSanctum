@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -22,11 +23,11 @@ class AuthenticationController extends Controller
             'password' => Hash::make($request->password),
         ];
 
-        $user = User::create($userData);
-        $token = $user->createToken('forumapp')->plainTextToken;
+        $customer = Customer::create($userData);
+        $token = $customer->createToken('forumapp')->plainTextToken;
 
         return response([
-            'user' => $user,
+            'customer' => $customer,
             'token' => $token
         ], 201);
    }
@@ -35,17 +36,17 @@ class AuthenticationController extends Controller
    {
         $request->validated();
 
-        $user = User::whereUsername($request->username)->first();
-        if(!$user || !Hash::check($request->password, $user->password)){
+        $customer = Customer::whereUsername($request->username)->first();
+        if(!$customer || !Hash::check($request->password, $customer->password)){
             return response([
                 'message' => 'Invalid credentials'
             ], 422);
         }
 
-        $token = $user->createToken('forumapp')->plainTextToken;
+        $token = $customer->createToken('forumapp')->plainTextToken;
 
         return response([
-            'user' => $user,
+            'customer' => $customer,
             'token' => $token
         ], 200);
 
