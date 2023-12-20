@@ -13,7 +13,7 @@ class FeedController extends Controller
 {
     public function index()
     {
-        $feeds = Feed::with('user')->latest()->get();
+        $feeds = Feed::with('customer')->latest()->get();
         return response([
             'feeds' => $feeds
         ], 200);
@@ -25,7 +25,7 @@ class FeedController extends Controller
     {
         $request->validated();
 
-        auth()->user()->feeds()->create([
+        auth()->customer()->feeds()->create([
             'content' => $request->content
         ]);
 

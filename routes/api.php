@@ -22,6 +22,9 @@ Route::post('/feed/like/{feed_id}', [FeedController::class, 'likePost'])->middle
 Route::post('/feed/comment/{feed_id}', [FeedController::class, 'comment'])->middleware('auth:sanctum');
 Route::get('/feed/comments/{feed_id}', [FeedController::class, 'getComments'])->middleware('auth:sanctum');
 
+Route::post('/customer_information', [App\Http\Controllers\API\CustomerInformationController::class, 'customer_information']);
+Route::post('/customer_address', [App\Http\Controllers\API\CustomerAddressController::class, 'customer_address']);
+
 
 
 Route::get('/test', function(){
