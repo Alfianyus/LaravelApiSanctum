@@ -15,7 +15,7 @@ class CustomerInformationController extends Controller
                     'FirstName' => 'required',
                 ]);
                 if ($validator->fails()) {
-                    return response()->json(['errors' => $validator->errors()], 422);
+                    return response()->json(['errors' => $validator->errors()], 422); 
                 }
                 // Jika data valid, simpan ke dalam database
             $customer = CustomerInformation::create([

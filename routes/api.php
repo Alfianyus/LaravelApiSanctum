@@ -24,6 +24,7 @@ Route::get('/feed/comments/{feed_id}', [FeedController::class, 'getComments'])->
 
 Route::post('/customer_information', [App\Http\Controllers\API\CustomerInformationController::class, 'customer_information']);
 Route::post('/customer_address', [App\Http\Controllers\API\CustomerAddressController::class, 'customer_address']);
+Route::post('/customer_job', [App\Http\Controllers\API\CustomerJobController::class, 'customer_job']);
 
 
 
