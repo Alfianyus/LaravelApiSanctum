@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CustomerInformation;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class CustomerInformationController extends Controller
 {
