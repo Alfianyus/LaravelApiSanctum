@@ -17,6 +17,8 @@ class CustomerInformation extends Model
             'BirthDate',
             'Sex',
             'MaritalStatus',
+            'MotherName',
+            'Religion',
             'Email',
             'MobilePhone',
             'Education',

@@ -26,6 +26,8 @@ class CustomerInformationController extends Controller
                 'BirthDate'=>$request->date('BirthDate'),
                 'Sex'=>$request->input('Sex'),
                 'MaritalStatus'=>$request->input('MaritalStatus'),
+                'MotherName'=>$request->input('MotherName'),
+                'Religion'=>$request->input('Religion'),
                 'Email'=>$request->input('Email'),
                 'MobilePhone'=>$request->input('MobilePhone'),
                 'Education'=>$request->input('Education'),
