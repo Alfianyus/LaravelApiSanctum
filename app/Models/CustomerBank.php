@@ -14,5 +14,7 @@ class CustomerBank extends Model
         'BankName',
         'BankOwner',
         'BankNumber',
+        'BankCabang',
+        'QuestionRDN',
     ];
 }

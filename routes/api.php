@@ -26,6 +26,7 @@ Route::post('/customer_information', [App\Http\Controllers\API\CustomerInformati
 Route::post('/customer_address', [App\Http\Controllers\API\CustomerAddressController::class, 'customer_address']);
 Route::post('/customer_job', [App\Http\Controllers\API\CustomerJobController::class, 'customer_job']);
 Route::post('/customer_bank', [App\Http\Controllers\API\CustomerBankController::class, 'customer_bank']);
+Route::post('/question', [App\Http\Controllers\API\QuestionController::class, 'question']);
 
 
 Route::get('/customer_information', function(){

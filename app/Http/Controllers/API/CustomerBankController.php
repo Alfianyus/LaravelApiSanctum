@@ -21,6 +21,8 @@ class CustomerBankController extends Controller
             'BankName'=>$request->input('BankName'),
             'BankOwner' =>$request->input('BankOwner'),
             'BankNumber'=>$request->input('BankNumber'),
+            'BankCabang'=>$request->input('BankCabang'),
+            'QuestionRDN'=>$request->input('QuestionRDN'),
         ]);
 
         return response()->json(['message'=> 'Data Berhasil Ditambahkan', 'data' => $customerbank], 201);

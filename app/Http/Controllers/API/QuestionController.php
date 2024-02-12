@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\Controller;
+use App\Models\Question;
+use Illuminate\Http\Request;
+use Validator;
+
+class QuestionController extends Controller
+{
+    public function question(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            'Risk' => 'required',
+        ]);
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+        $question = Question::create([
+            'Risk'=>$request->input('Risk'),
+            'SpouseIncomePerAnnum'=>$request->input('SpouseIncomePerAnnum'),
+            'SpouseOccupation'=>$request->input('SpouseOccupation'),
+            'SpousePosition'=>$request->input('SpousePosition'),
+            'SpouseNatureOfBusiness'=>$request->input('SpouseNatureOfBusiness'),
+            'SpouseCompanyName'=>$request->input('SpouseCompanyName'),
+            'SpouseCompanyCity'=>$request->input('SpouseCompanyCity'),
+            'SpouseCompanyPostalCode'=>$request->input('SpouseCompanyPostalCode'),
+            'SpouseCompanyAddress'=>$request->input('SpouseCompanyAddress'),
+            'SpouseFundSource'=>$request->input('SpouseFundSource'),
+            'FATCA1'=>$request->input('FATCA1'),
+            'FATCA2'=>$request->input('FATCA2'),
+            'FATCA3'=>$request->input('FATCA3'),
+            'Question1'=>$request->input('Question1'),
+            'Question1Text'=>$request->input('Question1Text'),
+            'Question2'=>$request->input('Question2'),
+            'Question2Text'=>$request->input('Question2Text'),
+            'Question3'=>$request->input('Question3'),
+            'Question3Text'=>$request->input('Question3Text'),
+            'Question4'=>$request->input('Question4'),
+            'Question4Text'=>$request->input('Question4Text'),
+            'Question5'=>$request->input('Question5'),
+            'Question5Text'=>$request->input('Question5Text'),
+            'Question6'=>$request->input('Question6'),
+            'Disclaimer'=>$request->input('Disclaimer'),  
+
+        ]);
+
+        return response()->json(['message' => 'Data berhasil ditambahkan', 'data' => $question], 201);
+    }
+
+
+
+  
+    
+}

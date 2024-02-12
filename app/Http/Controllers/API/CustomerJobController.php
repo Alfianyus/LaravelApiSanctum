@@ -22,9 +22,17 @@ class CustomerJobController extends Controller
             'Position'=>$request->input('Position'),
             'NatureOfBusiness'=>$request->input('NatureOfBusiness'),
             'CompanyName'=>$request->input('CompanyName'),
+            'CompanyAddress'=>$request->input('CompanyAddress'),
+            'CompanyCity'=>$request->input('CompanyCity'),
+            'CompanyPostalCode'=>$request->input('CompanyPostalCode'),
             'SpouseOccupation'=>$request->input('SpouseOccupation'),
             'IncomePerAnnum'=>$request->input('IncomePerAnnum'),
             'FundSource'=>$request->input('FundSource'),
+            'QuestionNPWP'=>$request->input('QuestionNPWP'),
+            'NPWPNumber'=>$request->input('NPWPNumber'),
+            'NPWPReason'=>$request->input('NPWPReason'),
+            'PositionText'=>$request->input('PositionText'),
+            'NatureOfBusinessText'=>$request->input('NatureOfBusinessText'),
         ]);
         return response()->json(['message'=> 'Data Berhasil ditambahkan', 'data' => $customerjob], 201);
     }

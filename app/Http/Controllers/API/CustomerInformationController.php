@@ -33,6 +33,12 @@ class CustomerInformationController extends Controller
                 'Education'=>$request->input('Education'),
                 'ResidencyNStatus'=>$request->input('ResidencyNStatus'),
                 'InvestmentObjectives'=>$request->input('InvestmentObjectives'),
+                'FilenameKTP'=>$request->input('FilenameKTP'),
+                'KTPBase64'=>$request->input('KTPBase64'),
+                'FilenameSelfie'=>$request->input('FilenameSelfie'),
+                'SelfieBase64'=>$request->input('SelfieBase64'),
+                'FilenameTandaTangan'=>$request->input('FilenameTandaTangan'),
+                'TandaTanganBase64'=>$request->input('TandaTanganBase64'),
                 // Isi kolom lainnya jika ada
             ]);
 

@@ -15,8 +15,16 @@ class CustomerJob extends Model
         'Position',
         'NatureOfBusiness',
         'CompanyName',
+        'CompanyAddress',
+        'CompanyCity',
+        'CompanyPostalCode',
         'SpouseOccupation',
         'IncomePerAnnum',
         'FundSource',
+        'QuestionNPWP',
+        'NPWPNumber',
+        'NPWPReason',
+        'PositionText',
+        'NatureOfBusinessText',
     ];
 }

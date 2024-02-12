@@ -24,5 +24,11 @@ class CustomerInformation extends Model
             'Education',
             'ResidencyNStatus',
             'InvestmentObjectives',
+            'FilenameKTP',
+            'KTPBase64',
+            'FilenameSelfie',
+            'SelfieBase64',
+            'FilenameTandaTangan',
+            'TandaTanganBase64',
     ];
 }
