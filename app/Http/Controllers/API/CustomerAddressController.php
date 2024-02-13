@@ -12,7 +12,21 @@ class CustomerAddressController extends Controller
     public function customer_address(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'IDCardAddress' => 'required',
+            'IDCardRT'=>'required|numeric|digits:4',
+            'IDCardRW'=>'required|numeric|digits:4',
+            'IDCardKelurahan'=>'required|regex:/^[a-zA-Z\s.]+$/',
+            'IDCardKecamatan'=>'required|regex:/^[a-zA-Z\s.]+$/',
+            'DomicileKecamatan'=>'required|regex:/^[a-zA-Z\s.]+$/',
+            'DomicileKelurahan'=>'required|regex:/^[a-zA-Z\s.]+$/',
+            'DomicilePostalCode'=>'required|numeric|digits:5',
+            'DomicileRW'=>'required|numeric|digits:4',
+            'DomicileCity'=>'required|numeric|digits:3',
+            'IDCardPostalCode'=> 'required|numeric|digits:5',
+            'ContactPersonHomePhone'=>'required|regex:/^\+62-\d+$/',
+            'ContactPersonName'=>'required|alpha',
+            'ContactPersonMobilePhone'=>'required|regex:/^\+62-\d+$/',
+
+
         ]);
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors()], 422);

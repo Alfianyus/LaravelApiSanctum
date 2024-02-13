@@ -9,12 +9,26 @@ use App\Models\User;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Validator;
 
 class AuthenticationController extends Controller
 {
    public function register(RegisterRequest $request)
    {
-        $request->validated();
+    $validator = Validator::make($request->all(),[
+        'name' => 'alpha|string|max:255',
+        'firstname' => 'alpha|string|max:255',
+        'email' => 'required|email|unique:customers,email',
+        'password' => [
+            'required',
+            'string',
+            'min:8',
+            'regex:/[A-Za-z0-9!@#$%^&*(),.?":{}|<>]/',
+        ],
+    ]);
+    if($validator->fails()){
+        return response()->json(['errors' => $validator->errors()], 422);
+    }
 
         $userData = [
             'name' => $request->name,

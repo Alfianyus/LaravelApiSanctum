@@ -12,7 +12,21 @@ class CustomerInformationController extends Controller
     public function customer_information(Request $request)
     {
                 $validator = Validator::make($request->all(),[
-                    'FirstName' => 'required',
+                    'IDCardNumber'=> 'required|numeric|digits:16',
+                    'FirstName' => 'regex:/^[A-Za-z\s]+$/|string|max:255',
+                    'BirthPlace'=>  'required|regex:/^[a-zA-Z\s]+$/',
+                    'BirthDate' => 'required|date_format:Y-m-d',
+                    'MotherName' => 'required|regex:/^[a-zA-Z\s]+$/',
+                    'Email' => 'string|email|max:255',
+                    'MobilePhone'=> 'required|regex:/^\+62-\d{11}$/',
+                    'FilenameKTP'=>'required|regex:/^[a-zA-Z0-9_]+$/',
+                    'KTPBase64' => 'required|string',
+                    // 'KTPBase64' => 'image|mimes:jpeg,jpg|max:2048', // JPG dengan maksimum 2MB
+                    'FilenameSelfie'=>'required|regex:/^[a-zA-Z0-9_]+$/',
+                    // 'SelfieBase64' => 'image|mimes:jpeg,jpg|max:2048', // JPG dengan maksimum 2MB
+                    'FilenameTandaTangan'=>'required|regex:/^[a-zA-Z0-9_]+$/',
+                    // 'TandaTanganBase64' => 'image|mimes:jpeg,jpg|max:2048', // JPG dengan maksimum 2MB  
+
                 ]);
                 if ($validator->fails()) {
                     return response()->json(['errors' => $validator->errors()], 422); 

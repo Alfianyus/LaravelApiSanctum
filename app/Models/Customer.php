@@ -30,6 +30,17 @@ class Customer extends Authenticatable
         'password',
     ];
 
+    public static $rules = [
+
+        'password' => [
+            'required',
+            'string',
+            'min:8',
+            'confirmed',
+            'regex:/[A-Za-z0-9!@#$%^&*(),.?":{}|<>]/',
+        ],
+    ];
+
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',

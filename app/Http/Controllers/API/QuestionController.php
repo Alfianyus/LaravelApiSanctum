@@ -5,14 +5,23 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Validator;
+// use Validator;
 
 class QuestionController extends Controller
 {
     public function question(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'Risk' => 'required',
+            'SpouseIncomePerAnnum'=>'required|numeric|digits:1',
+            'SpouseOccupation'=>'required|numeric|digits:1',
+            'SpousePosition'=>'required|regex:/^[a-zA-Z\s]+$/',
+            'SpouseNatureOfBusiness'=>'required|regex:/^[a-zA-Z\s]+$/',
+            'SpouseCompanyName'=>'required|max:200|regex:/^[a-zA-Z\s.,]+$/',
+            'SpouseCompanyCity'=>'required|numeric',
+            'SpouseCompanyPostalCode'=>'required|numeric|digits:5',
+            'SpouseCompanyAddress'=>'required|max:200|regex:/^[a-zA-Z0-9\s.,]+$/',
+            'SpouseFundSource'=>'required|numeric|digits:1',
         ]);
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors()], 422);

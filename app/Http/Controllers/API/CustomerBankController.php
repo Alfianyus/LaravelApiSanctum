@@ -12,7 +12,11 @@ class CustomerBankController extends Controller
     public function customer_bank(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'BankOwner'=> 'required',
+            'BankName'=>'required|regex:/^[a-zA-Z\s]+$/',
+            'BankOwner'=>'required|regex:/^[a-zA-Z\s]+$/',
+            'BankNumber'=>'required|numeric',
+            'BankCabang'=>'required|regex:/^[a-zA-Z\s]+$/',
+            'QuestionRDN'=>'required|numeric|digits:1',
         ]);
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors()], 422);

@@ -12,7 +12,20 @@ class CustomerJobController extends Controller
     public function customer_job(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'Occupation' => 'required',
+            'Position'=>'required|numeric|digits:1',
+            'NatureOfBusiness'=>'required|numeric|digits:1',
+            'CompanyName'=>'required|max:200|regex:/^[a-zA-Z\s.,]+$/',
+            'CompanyAddress'=>'required|max:200|regex:/^[a-zA-Z0-9\s.,]+$/',
+            'CompanyCity'=>'required|numeric|digits:3',
+            'CompanyPostalCode'=>'required|numeric|digits:5',
+            'SpouseOccupation'=>'required|numeric|digits:1',
+            'IncomePerAnnum'=>'required|numeric|digits:1',
+            'FundSource'=>'required|numeric|digits:1',
+            'QuestionNPWP'=>'required|numeric|digits:1',
+            'NPWPNumber'=>'required|numeric',
+            'NPWPReason'=>'required|max:200|regex:/^[a-zA-Z\s.,]+$/',
+            'PositionText'=>'required|max:200|regex:/^[a-zA-Z\s.,]+$/',
+            'NatureOfBusinessText'=>'required|max:200|regex:/^[a-zA-Z\s.,]+$/',
         ]);
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors()], 422);
