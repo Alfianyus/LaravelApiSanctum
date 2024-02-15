@@ -22,7 +22,6 @@ class CustomerInformation extends Model
             'Email',
             'MobilePhone',
             'Education',
-            'ResidencyNStatus',
             'InvestmentObjectives',
             'FilenameKTP',
             'KTPBase64',

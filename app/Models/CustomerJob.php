@@ -18,7 +18,6 @@ class CustomerJob extends Model
         'CompanyAddress',
         'CompanyCity',
         'CompanyPostalCode',
-        'SpouseOccupation',
         'IncomePerAnnum',
         'FundSource',
         'QuestionNPWP',

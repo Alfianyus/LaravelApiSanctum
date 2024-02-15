@@ -38,7 +38,6 @@ class CustomerJobController extends Controller
             'CompanyAddress'=>$request->input('CompanyAddress'),
             'CompanyCity'=>$request->input('CompanyCity'),
             'CompanyPostalCode'=>$request->input('CompanyPostalCode'),
-            'SpouseOccupation'=>$request->input('SpouseOccupation'),
             'IncomePerAnnum'=>$request->input('IncomePerAnnum'),
             'FundSource'=>$request->input('FundSource'),
             'QuestionNPWP'=>$request->input('QuestionNPWP'),

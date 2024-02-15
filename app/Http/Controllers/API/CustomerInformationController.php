@@ -45,7 +45,6 @@ class CustomerInformationController extends Controller
                 'Email'=>$request->input('Email'),
                 'MobilePhone'=>$request->input('MobilePhone'),
                 'Education'=>$request->input('Education'),
-                'ResidencyNStatus'=>$request->input('ResidencyNStatus'),
                 'InvestmentObjectives'=>$request->input('InvestmentObjectives'),
                 'FilenameKTP'=>$request->input('FilenameKTP'),
                 'KTPBase64'=>$request->input('KTPBase64'),
